@@ -1,0 +1,21 @@
+<div class="center-container">
+  <div class="back-button-container">
+    <app-back-button/>
+  </div>
+  <h2 class="main-title">{{nameOfCountry}}</h2>
+  <div class="details-container">
+    <app-details-component
+      [label]="'Number of entries'"
+      [value]="numberOfJos">
+    </app-details-component>
+    <app-details-component
+      [label]="'Total number of medals'"
+      [value]="totalMedals">
+    </app-details-component>
+    <app-details-component
+      [label]="'Total number of athletes'"
+      [value]="totalAthletes">
+    </app-details-component>
+  </div>
+  <app-line-chart *ngIf="selectedCountry" [country]="selectedCountry"></app-line-chart>
+</div>

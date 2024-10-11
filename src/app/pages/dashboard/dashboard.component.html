@@ -1,0 +1,14 @@
+<div class="center-container">
+  <h2 class="main-title">Medals per Country</h2>
+<div class="details-container">
+        <app-details-component
+          [label]="'Number of JOs'" 
+          [value]="numberOfJos">
+        </app-details-component>
+        <app-details-component
+        [label]="'Number of countries'" 
+        [value]="numberOfCountries">
+      </app-details-component>
+      </div>
+<app-pie-chart *ngIf="olympics$ | async as olympicsData" [olympics]="olympicsData"></app-pie-chart>
+</div>

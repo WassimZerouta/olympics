@@ -1,0 +1,32 @@
+.box {
+    border: 2px solid #08838F; 
+    border-radius: 10px; 
+    padding-left: 8px;
+    padding-right: 8px;  
+    width: fit-content;
+    background-color: #FFFFFE; 
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+  
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+  
+    h3 {
+      color: #A6A6A5; 
+      font-size: 20px;
+      font-family: 'Helvetica Neue';
+      font-weight: 300;
+      margin-top: 0.1;
+      margin-bottom: 0; 
+    }
+  
+    p {
+      font-size: 17px;
+      font-family: 'Helvetica Neue';
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 0.1;
+    }
+  }
