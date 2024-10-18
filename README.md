@@ -12,8 +12,12 @@ Pour obtenir une copie locale du projet, clonez le dépôt GitHub :
 git clone https://github.com/WassimZerouta/olympics.git
 ```
 
-Une fois le projet ouvert, dans votre editeur, faites la commande : 
+Une fois le projet ouvert, dans votre editeur, faite la commande : 
 
+```bash
+npm install
+```
+Puis: 
 ```bash
 ng serve
 ```
