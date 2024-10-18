@@ -9,7 +9,7 @@ import { OlympicCountry } from '../models/Olympic';
 })
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
-  private olympics$ = new BehaviorSubject<OlympicCountry[] | undefined>(undefined);
+  olympics$ = new BehaviorSubject<OlympicCountry[] | undefined>(undefined);
 
   constructor(private http: HttpClient) {}
 
@@ -30,15 +30,5 @@ export class OlympicService {
 
   getOlympics() {
     return this.olympics$.asObservable();
-  }
-
-  getCountryById(id: number): OlympicCountry | undefined {
-    const olympics = this.olympics$.getValue();
-
-    if (olympics) {
-      return olympics.find(country => country.id === id);
-    } else {
-      return undefined; 
-    }
   }
 }

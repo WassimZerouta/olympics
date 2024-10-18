@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit, OnDestroy {
 
   public olympics$!: Observable<OlympicCountry[] | undefined>;
-  public numberOfJos: string = "10";
+  public numberOfJos: string = "";
   public numberOfCountries: string = "";
 
   private olympicsSubscription!: Subscription;
@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
       if (data) {
         this.numberOfCountries = data.length.toString();
+        this.numberOfJos = data[0].participations.length.toString();
       }
     });
   }

@@ -27,7 +27,7 @@ export class DetailsCountryComponent implements OnInit {
   
   public id: number | null = null; 
   public selectedCountry: OlympicCountry | undefined; 
-  public nameOfCountry: string = ""
+  public nameOfCountry: string = "";
   public numberOfJos: string = "0"; 
   public totalMedals: string = "0"; 
   public totalAthletes: string = "0";  
@@ -39,26 +39,28 @@ export class DetailsCountryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   
     this.id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.selectedCountry = this.olympicService.getCountryById(this.id);
-    if (!this.selectedCountry) {
-      this.router.navigate(['/not-found']);
-    }
+    this.olympicService.olympics$.subscribe(olympics => {
+      if (olympics) {
+        this.selectedCountry = olympics.find(country => country.id === this.id);
+    
+        if (this.selectedCountry) {
+          this.nameOfCountry = this.selectedCountry.country;
+          
+          this.numberOfJos = this.selectedCountry.participations.length.toString();
 
-        
-    if (this.selectedCountry) {
-      
-      this.nameOfCountry = this.selectedCountry.country
-      
-      this.numberOfJos = this.selectedCountry.participations.length.toString();
-
-      this.totalMedals = this.selectedCountry.participations
-        .reduce((numberOfMedals, participation) => numberOfMedals + participation.medalsCount, 0).toString();
-        
-      this.totalAthletes = this.selectedCountry.participations
-        .reduce((numberOfAthlete, participation) => numberOfAthlete + participation.athleteCount, 0).toString();
-    }
+          this.totalMedals = this.selectedCountry.participations
+            .reduce((numberOfMedals, participation) => numberOfMedals + participation.medalsCount, 0)
+            .toString();
+            
+          this.totalAthletes = this.selectedCountry.participations
+            .reduce((numberOfAthlete, participation) => numberOfAthlete + participation.athleteCount, 0)
+            .toString();
+        } else {
+          this.router.navigate(['/not-found']);
+        }
+      }
+    });
   }
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailsComponent } from './infos-view.component';
+import { InfosViewComponent } from './infos-view.component';
 
 describe('DetailsComponentComponent', () => {
-  let component: DetailsComponent;
-  let fixture: ComponentFixture<DetailsComponent>;
+  let component: InfosViewComponent;
+  let fixture: ComponentFixture<InfosViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DetailsComponent]
+      imports: [InfosViewComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DetailsComponent);
+    fixture = TestBed.createComponent(InfosViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
